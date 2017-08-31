@@ -1,0 +1,40 @@
+---
+extends: "airbnb"
+parser: "babel-eslint"
+rules:
+  camelcase: off # require camel case names
+  prefer-template: off
+  object-shorthand: off
+  quotes: off # ', ", ` no one cares
+  max-len: off # be sensible
+  no-mixed-operators: off # allow 1 + 1 * 3
+  no-confusing-arrow: off # allow (a) => a ? 1 : 2;
+  no-nested-ternary: off
+  object-curly-spacing: off # allow { a: 1 } and {a: 1}
+  dot-notation: off # allows someObject["a"] as well as someObject.a
+  comma-dangle: ["error", "never"]
+  padded-blocks: off
+  arrow-body-style: off
+  arrow-parens: ["error", "always"] # use brackets always, (a) => body // () => body // (a, b) => body
+  one-var: off
+  one-var-declaration-per-line: off
+  no-console: off # this is node, not the browser
+  no-param-reassign: [1, { "props": false }]
+  no-unused-expressions: ['error', {"allowTernary": true }]
+  no-restricted-syntax: ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'] # allow ForOfStatement
+  array-callback-return: off # we commonly mutate in place in array map statements
+  react/jsx-tag-spacing: ["error", { "closingSlash": "never", "beforeSelfClosing": "never", "afterOpening": "never" }]
+  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }]
+  react/jsx-first-prop-new-line: off
+  react/prop-types: off # possibly reinstate
+  react/sort-comp: off # possibly reinstate
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    modules: true
+env:
+  es6: true
+  browser: true
+
+# https://gist.github.com/odedw/cf14a55aa154adbc3bf7#file-eslintrc-yaml-L4
