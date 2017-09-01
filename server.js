@@ -2,6 +2,7 @@ const queryString = require("query-string");
 // const path = require("path");
 const express = require("express");
 // const request = require("request");
+const cors = require('cors');
 
 const datasets = {
   hades: {
@@ -15,6 +16,7 @@ const datasets = {
 };
 
 const app = express();
+app.use(cors());
 app.set('port', 5000);
 
 app.get('*', (req, res) => {
@@ -27,12 +29,10 @@ app.get('*', (req, res) => {
     res.status(404).send('Invalid user');
     return;
   }
+  console.log("received valid request from ", query.user)
   res.json(datasets[query.user]);
 });
 
 app.listen(app.get('port'), () => {
   console.log('Charon started. Listening on port ' + app.get('port'));
 });
-
-
-console.log("EOF");
